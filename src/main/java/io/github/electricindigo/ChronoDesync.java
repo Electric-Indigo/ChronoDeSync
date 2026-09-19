@@ -9,7 +9,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.ModContainer;
 
 @Mod(ChronoDesync.MODID)
-public class ChronoDesync {
+public class ChronoDesync
+{
     public static final String MODID = "chronodesync";
     public static final Logger LOGGER = LogUtils.getLogger();
 
