@@ -1,0 +1,36 @@
+package io.github.electricindigo;
+
+import io.github.electricindigo.block.ModBlocks;
+import io.github.electricindigo.item.ModItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
+
+public class ModCreativeTabs
+{
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChronoDesync.MODID);
+
+    public static final Supplier<CreativeModeTab> CHRONODESYNC_TAB = CREATIVE_MODE_TABS.register(
+            "chronodesync_tab",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("creativetab.chronodesync.chronodesync_tab"))
+                    .icon(() -> ModItems.COMPUTER_UPGRADE.get().getDefaultInstance())
+                    .displayItems((params, output) ->
+                    {
+                        output.accept(ModItems.EFD_ITEM.get());
+                        output.accept(ModItems.COMPUTER_UPGRADE.get());
+                        output.accept(ModBlocks.RESEARCH_DESK.get());
+                    })
+                    .build()
+    );
+
+    public static void register(IEventBus modEventBus)
+    {
+        CREATIVE_MODE_TABS.register(modEventBus);
+    }
+}
