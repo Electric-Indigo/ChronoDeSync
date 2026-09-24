@@ -35,7 +35,7 @@ public class TabButton extends AbstractButton
     }
 
     @Override
-    protected void extractContents(GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float v)
+    protected void extractContents(GuiGraphicsExtractor guiGraphicsExtractor, int i, int i1, float partialTick)
     {
         guiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED, texture, getX(), getY(), (float) u, (float) v, width, height, textureWidth, textureHeight);
     }

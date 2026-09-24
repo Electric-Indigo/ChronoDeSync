@@ -2,7 +2,9 @@ package io.github.electricindigo.network;
 
 import io.github.electricindigo.ChronoDesync;
 import io.github.electricindigo.client.PuzzleClientHandler;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
