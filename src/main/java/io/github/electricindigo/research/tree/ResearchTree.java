@@ -12,9 +12,9 @@ public final class ResearchTree
     {
         add(new ResearchNode("chronometry", "Chronometry",
                 "The basics of measuring time drift.",
-                "Every object drifts through time at a slightly different rate. The drift is tiny,"
+                "Every object drifts through time at a slightly different rate. The drift is tiny, "
         + "but a sensitive enough instrument can pick it up. \n"
-        + "Chronometry is the study of measuring that drift, and it is the foundation"
+        + "Chronometry is the study of measuring that drift, and it is the foundation "
         + "for everything else on this terminal.",
                 0, 26, List.of()));
         add(new ResearchNode("chrono_chem", "Chrono-Chem",

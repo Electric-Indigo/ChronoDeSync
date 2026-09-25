@@ -7,6 +7,7 @@ import io.github.electricindigo.command.DebugWaveformCommand;
 import io.github.electricindigo.datagen.*;
 import io.github.electricindigo.item.ModItems;
 import io.github.electricindigo.network.ModNetworking;
+import io.github.electricindigo.registry.ModAttachments;
 import io.github.electricindigo.registry.ModBlockEntities;
 import io.github.electricindigo.registry.ModMenuTypes;
 import net.minecraft.core.RegistrySetBuilder;
@@ -14,15 +15,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -38,7 +35,6 @@ import java.util.Set;
 public class ChronoDesync
 {
     public static final String MODID = "chronodesync";
-    public static final Logger LOGGER = LogUtils.getLogger();
 
     public ChronoDesync(IEventBus modEventBus, ModContainer modContainer)
     {
@@ -51,6 +47,7 @@ public class ChronoDesync
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
+        ModAttachments.register(modEventBus);
     }
 
     public void onRegisterMenuScreens(RegisterMenuScreensEvent event)

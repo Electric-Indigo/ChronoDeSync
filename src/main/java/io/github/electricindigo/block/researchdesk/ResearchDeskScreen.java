@@ -1,11 +1,13 @@
 package io.github.electricindigo.block.researchdesk;
 
 import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.network.UnlockResearchPayload;
+import io.github.electricindigo.registry.ModAttachments;
 import io.github.electricindigo.research.tree.NodeState;
 import io.github.electricindigo.research.tree.ResearchNode;
 import io.github.electricindigo.research.tree.ResearchTree;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -13,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -62,8 +65,11 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
     private int infoScroll = 0;
     private int infoMaxScroll = 0;
 
-    // TEMPORARY: client-only, resets when the screen closes. Replaced by synced player data in step 2.
-    private final Set<String> unlockedResearch = new HashSet<>();
+    private Set<String> unlockedResearch()
+    {
+        var player = Minecraft.getInstance().player;
+        return player == null ? Set.of() : player.getData(ModAttachments.RESEARCH).unlocked();
+    }
 
     public ResearchDeskScreen(ResearchDeskMenu menu, Inventory inventory, Component title)
     {
@@ -106,7 +112,7 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
 
     private NodeState stateOf(ResearchNode node)
     {
-        return ResearchTree.stateOf(node, unlockedResearch);
+        return ResearchTree.stateOf(node, unlockedResearch());
     }
 
     @Override
@@ -241,7 +247,7 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
             for (String preId : node.prerequisites())
             {
                 ResearchNode pre = ResearchTree.get(preId);
-                if (pre != null && !unlockedResearch.contains(preId)) missing.add(pre.title());
+                if (pre != null && !unlockedResearch().contains(preId)) missing.add(pre.title());
             }
             secondLine = "Requires: " + String.join(", ", missing);
         }
@@ -392,7 +398,7 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
             }
             case AVAILABLE ->
             {
-                if (node == selectedNode) unlockedResearch.add(node.id());
+                if (node == selectedNode) ClientPacketDistributor.sendToServer(new UnlockResearchPayload(node.id()));
                 else selectedNode = node;
             }
             case PREVIEW -> selectedNode = node;
@@ -422,7 +428,7 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick)
     {
-        if (activeTab == Tab.COMPUTER && event.button() == 0)
+        if (activeTab == Tab.COMPUTER && event.button() == 1)
         {
             if (infoPageNode != null)
             {

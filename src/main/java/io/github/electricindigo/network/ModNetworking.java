@@ -2,9 +2,9 @@ package io.github.electricindigo.network;
 
 import io.github.electricindigo.ChronoDesync;
 import io.github.electricindigo.client.PuzzleClientHandler;
+import io.github.electricindigo.research.ResearchManager;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
@@ -32,5 +32,11 @@ public final class ModNetworking
                 OpenWaveformPuzzlePayload.STREAM_CODEC,
                 (payload, context) -> context.enqueueWork(()->
                         PuzzleClientHandler.openWaveformPuzzle(payload.seed(), payload.difficulty())));
+
+        registrar.playToServer(
+                UnlockResearchPayload.TYPE,
+                UnlockResearchPayload.STREAM_CODEC,
+                (payload, context) -> context.enqueueWork(() ->
+                        ResearchManager.tryUnlock((ServerPlayer) context.player(), payload.nodeId())));
     }
 }
