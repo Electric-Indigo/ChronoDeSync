@@ -21,7 +21,7 @@ public class ResearchDeskBlockEntity extends BlockEntity implements MenuProvider
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.chronodesync.research_desk");
+        return Component.translatable("block.chronodynamics.research_desk");
     }
 
     @Override

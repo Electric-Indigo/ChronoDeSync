@@ -1,6 +1,6 @@
 package io.github.electricindigo.registry;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.research.ResearchData;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public class ModAttachments
 {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES =
-            DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, ChronoDesync.MODID);
+            DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, ChronoDynamics.MODID);
 
     public static final Supplier<AttachmentType<ResearchData>> RESEARCH =
             ATTACHMENT_TYPES.register("research", () -> AttachmentType.builder(() -> ResearchData.EMPTY)

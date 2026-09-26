@@ -12,7 +12,7 @@ displayName="${mod_name}" #mandatory
 #authors=""
 
 description='''
-Example mod description.
+Sci-Fi tech/time travel mod
 '''
 
 #[[mixins]]

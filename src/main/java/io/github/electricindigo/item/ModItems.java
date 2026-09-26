@@ -1,6 +1,6 @@
 package io.github.electricindigo.item;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.block.ModBlocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems
 {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ChronoDesync.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ChronoDynamics.MODID);
 
 
     public static final DeferredItem<Item> EFD_ITEM = ITEMS.registerSimpleItem("e_for_d",

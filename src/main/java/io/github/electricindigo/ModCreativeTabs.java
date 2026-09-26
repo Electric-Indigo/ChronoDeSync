@@ -13,12 +13,12 @@ import java.util.function.Supplier;
 public class ModCreativeTabs
 {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChronoDesync.MODID);
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChronoDynamics.MODID);
 
-    public static final Supplier<CreativeModeTab> CHRONODESYNC_TAB = CREATIVE_MODE_TABS.register(
-            "chronodesync_tab",
+    public static final Supplier<CreativeModeTab> CHRONODYNAMICS_TAB = CREATIVE_MODE_TABS.register(
+            "chronodynamics_tab",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("creativetab.chronodesync.chronodesync_tab"))
+                    .title(Component.translatable("creativetab.chronodynamics.chronodynamics_tab"))
                     .icon(() -> ModItems.COMPUTER_UPGRADE.get().getDefaultInstance())
                     .displayItems((params, output) ->
                     {

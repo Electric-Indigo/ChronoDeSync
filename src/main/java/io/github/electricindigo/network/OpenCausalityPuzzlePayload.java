@@ -1,6 +1,6 @@
 package io.github.electricindigo.network;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
 public record OpenCausalityPuzzlePayload(long seed, int difficulty) implements CustomPacketPayload
 {
     public static final Type<OpenCausalityPuzzlePayload> TYPE =
-            new Type<>(Identifier.fromNamespaceAndPath(ChronoDesync.MODID, "open_causality_puzzle"));
+            new Type<>(Identifier.fromNamespaceAndPath(ChronoDynamics.MODID, "open_causality_puzzle"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, OpenCausalityPuzzlePayload> STREAM_CODEC =
             StreamCodec.composite(

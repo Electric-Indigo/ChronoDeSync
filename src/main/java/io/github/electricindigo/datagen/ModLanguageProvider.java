@@ -1,6 +1,6 @@
 package io.github.electricindigo.datagen;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.block.ModBlocks;
 import io.github.electricindigo.item.ModItems;
 import net.minecraft.data.PackOutput;
@@ -10,7 +10,7 @@ public class ModLanguageProvider extends LanguageProvider
 {
 
     public ModLanguageProvider(PackOutput output) {
-        super(output, ChronoDesync.MODID, "en_us");
+        super(output, ChronoDynamics.MODID, "en_us");
     }
 
     @Override
@@ -21,6 +21,6 @@ public class ModLanguageProvider extends LanguageProvider
 
         addBlock(ModBlocks.RESEARCH_DESK, "Research Desk");
 
-        add("creativetab.chronodesync.chronodesync_tab", "ChronoDesync");
+        add("creativetab.chronodynamics.chronodynamics_tab", "Chrono Dynamics");
     }
 }

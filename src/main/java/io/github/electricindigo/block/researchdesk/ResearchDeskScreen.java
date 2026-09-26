@@ -1,6 +1,6 @@
 package io.github.electricindigo.block.researchdesk;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.network.UnlockResearchPayload;
 import io.github.electricindigo.registry.ModAttachments;
 import io.github.electricindigo.research.tree.NodeState;
@@ -22,7 +22,7 @@ import java.util.*;
 
 public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu>
 {
-    private static final Identifier TAB_ICONS = Identifier.fromNamespaceAndPath(ChronoDesync.MODID, "textures/gui/tab_icons.png");
+    private static final Identifier TAB_ICONS = Identifier.fromNamespaceAndPath(ChronoDynamics.MODID, "textures/gui/tab_icons.png");
 
     private static final int TREE_X = 19;
     private static final int TREE_Y = 8;
@@ -37,9 +37,9 @@ public class ResearchDeskScreen extends AbstractContainerScreen<ResearchDeskMenu
 
     private enum Tab
     {
-        DESK(Identifier.fromNamespaceAndPath(ChronoDesync.MODID, "textures/gui/desk_gui.png"), 0, 0),
-        COMPUTER(Identifier.fromNamespaceAndPath(ChronoDesync.MODID, "textures/gui/computer_gui.png"), 22, 0),
-        TEST(Identifier.fromNamespaceAndPath(ChronoDesync.MODID, "textures/gui/test_gui.png"), 44, 0);
+        DESK(Identifier.fromNamespaceAndPath(ChronoDynamics.MODID, "textures/gui/desk_gui.png"), 0, 0),
+        COMPUTER(Identifier.fromNamespaceAndPath(ChronoDynamics.MODID, "textures/gui/computer_gui.png"), 22, 0),
+        TEST(Identifier.fromNamespaceAndPath(ChronoDynamics.MODID, "textures/gui/test_gui.png"), 44, 0);
 
         final Identifier background;
         final int iconU;

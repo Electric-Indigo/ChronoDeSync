@@ -1,7 +1,7 @@
 package io.github.electricindigo.datagen;
 
 import com.mojang.math.Quadrant;
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.block.ModBlocks;
 import io.github.electricindigo.block.researchdesk.DeskPart;
 import io.github.electricindigo.block.researchdesk.ResearchDeskBlock;
@@ -14,8 +14,6 @@ import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.renderer.block.dispatch.Variant;
-import net.minecraft.client.renderer.block.dispatch.VariantMutator;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
@@ -24,7 +22,7 @@ public class ModModelProvider extends ModelProvider
 {
 
     public ModModelProvider(PackOutput output) {
-        super(output, ChronoDesync.MODID);
+        super(output, ChronoDynamics.MODID);
     }
 
     @Override

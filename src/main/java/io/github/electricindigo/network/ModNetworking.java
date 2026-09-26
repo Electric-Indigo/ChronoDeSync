@@ -1,6 +1,6 @@
 package io.github.electricindigo.network;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.client.PuzzleClientHandler;
 import io.github.electricindigo.research.ResearchManager;
 import net.minecraft.server.level.ServerPlayer;
@@ -19,7 +19,7 @@ public final class ModNetworking
 
     private static void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent event)
     {
-        PayloadRegistrar registrar = event.registrar(ChronoDesync.MODID).versioned("1.0.0");
+        PayloadRegistrar registrar = event.registrar(ChronoDynamics.MODID).versioned("1.0.0");
 
         registrar.playToClient(
                 OpenCausalityPuzzlePayload.TYPE,

@@ -1,6 +1,6 @@
 package io.github.electricindigo.datagen;
 
-import io.github.electricindigo.ChronoDesync;
+import io.github.electricindigo.ChronoDynamics;
 import io.github.electricindigo.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -13,7 +13,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider
 {
 
     public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, ChronoDesync.MODID);
+        super(output, lookupProvider, ChronoDynamics.MODID);
     }
 
     @Override

@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "chronodynamics:e_for_d"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 12,
+    "id": "minecraft:emerald"
+  },
+  "xp": 10
+}
